@@ -52,7 +52,7 @@ static void window_load(Window *window) {
   image_frame.origin.x -= tr_img->bounds.size.w/2;
   image_frame.origin.y -= tr_img->bounds.size.h/2;
 
-  TransparentImageLayer* tr_layer = transparent_image_layer_create(image_frame, tr_img);
+  tr_layer = transparent_image_layer_create(image_frame, tr_img);
   layer_add_child(window_layer, transparent_image_layer_get_layer(tr_layer));
 }
 
