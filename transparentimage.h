@@ -3,8 +3,8 @@
 #include "pebble.h"
 
 typedef struct TransparentImageLayer {
-  BitmapLayer* white_layer;
-  BitmapLayer* black_layer;
+  BitmapLayer *white_layer;
+  BitmapLayer *black_layer;
 } TransparentImageLayer;
 
 typedef struct TransparentImage {
@@ -13,14 +13,16 @@ typedef struct TransparentImage {
   GRect bounds;
 } TransparentImage;
 
-TransparentImage* trasparent_image_create_with_resources(
+TransparentImage *trasparent_image_create_with_resources(
   uint32_t bitmap_black_res_id, uint32_t bitmap_white_res_id);
 
-TransparentImageLayer* transparent_image_layer_create(GRect image_frame,
-  const TransparentImage* transparent_image);
+void transparent_image_layer_set_image(const TransparentImageLayer *layer,
+  const TransparentImage *image);
 
-Layer* transparent_image_layer_get_layer(const TransparentImageLayer* layer);
+TransparentImageLayer *transparent_image_layer_create(GRect image_frame);
 
-void transparent_image_layer_destroy(TransparentImageLayer* layer);
+Layer *transparent_image_layer_get_layer(const TransparentImageLayer *layer);
 
-void transparent_image_destroy(TransparentImage* image);
+void transparent_image_layer_destroy(TransparentImageLayer *layer);
+
+void transparent_image_destroy(TransparentImage *image);
