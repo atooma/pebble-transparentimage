@@ -45,9 +45,13 @@ Layer *transparent_image_layer_get_layer(const TransparentImageLayer *layer) {
 void transparent_image_layer_destroy(TransparentImageLayer *layer) {
   bitmap_layer_destroy(layer->white_layer);
   bitmap_layer_destroy(layer->black_layer);
+  free(layer);
+  layer = 0;
 }
 
 void transparent_image_destroy(TransparentImage *image) {
   gbitmap_destroy(image->white_image);
   gbitmap_destroy(image->black_image);
+  free(image);
+  image = 0;
 }
